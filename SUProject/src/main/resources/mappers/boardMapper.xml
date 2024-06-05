@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suproject.mappers.BoardMapper">
+	
+	<insert id="createBoard">
+		insert into tbl_board (title, content, writer, trainer) values (#{title}, #{content}, #{writer}, #{trainer})
+	</insert>
+	
+	<select id="readBoard" resultType="com.suproject.domain.BoardVO">
+		select * from tbl_board where bno = #{bno}
+	</select>
+	
+	<update id="updateBoard">
+		update tbl_board set title = #{title}, content = #{content} where bno = #{bno}
+	</update>
+	
+	<delete id="deleteBoard">
+		delete from tbl_board where bno = #{bno}
+	</delete>
+
+	<select id="listBoard" resultType="com.suproject.domain.BoardVO">
+		<![CDATA[
+		select * from tbl_board where writer = #{writer} and bno > 0 order by bno desc, regdate desc
+		]]>
+	</select>
+	
+	<select id="lastBno" resultType="int">
+		select max(bno) from tbl_board
+	</select>
+	
+	<select id="listTrainerBoard" resultType="com.suproject.domain.BoardVO">
+		<!-- 서브 쿼리를 사용하여 데이터 불러옴 -->
+		<![CDATA[
+		select tbl_board.* from tbl_board, tbl_enroll where writer = member and tbl_enroll.trainer = #{trainer}
+		and bno > 0 order by bno desc, regdate desc
+		]]>
+	</select>
+	
+	<select id="listAll" resultType="com.suproject.domain.BoardVO">
+		<![CDATA[
+		select * from tbl_board where bno > 0 order by bno desc, regdate desc
+		]]>
+	</select>
+	
+	<update id="updateRating">
+		update tbl_board set rating = #{rating} where bno = #{bno}
+	</update>
+	
+</mapper>

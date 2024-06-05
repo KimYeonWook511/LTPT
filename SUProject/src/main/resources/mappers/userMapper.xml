@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="com.suproject.mappers.UserMapper">
+	
+	<insert id="joinUser" >
+		insert into tbl_user (userid, userpw, username, usergender, callnum) 
+		values (#{userid}, #{userpw}, #{username}, #{usergender}, #{callnum})
+	</insert>
+	
+	<select id="readUser" resultType="com.suproject.domain.UserVO">
+		select * from tbl_user where userid = #{userid}
+	</select>
+	
+	<delete id="deleteUser">
+		delete from tbl_user where userid = #{userid} and userpw = #{userpw}
+	</delete>
+	
+	<select id="listUser" resultType="com.suproject.domain.UserVO">
+		<!-- CDATA는 특수문자(<, >, & 등)를 사용했을 시 xml에서 쿼리문이라는 것을 인식하기 위해 사용함 -->
+		<![CDATA[
+		select * from tbl_user
+		]]>
+	</select>
+	
+	<select id="listTrainer" resultType="com.suproject.domain.UserVO">
+		<!-- CDATA는 특수문자(<, >, & 등)를 사용했을 시 xml에서 쿼리문이라는 것을 인식하기 위해 사용함 -->
+		<![CDATA[
+		select * from tbl_user where authority = "trainer"
+		]]>
+	</select>
+	
+	<update id="updateAuth">
+		 update tbl_user set authority = #{authority} where userid = #{userid}
+	</update>
+	
+</mapper>

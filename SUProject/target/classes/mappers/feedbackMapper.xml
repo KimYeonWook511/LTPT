@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suproject.mappers.FeedbackMapper">
+	
+	<insert id="createFeedback">
+		insert into tbl_feedback (bno, content, writer, videono) values (#{bno}, #{content}, #{writer}, #{videono})
+	</insert>
+	
+	<select id="readFeedback" resultType="com.suproject.domain.FeedbackVO">
+		select * from tbl_feedback where bno = #{bno} and videono = #{videono}
+	</select>
+	
+	<update id="updateFeedback">
+		update tbl_feedback set content = #{content} where bno = #{bno} and videono = #{videono}
+	</update>
+	
+	<delete id="deleteFeedback">
+		delete from tbl_feedback where bno = #{bno}
+	</delete>
+	
+	<select id="listFeedback" resultType="com.suproject.domain.FeedbackVO">
+		select * from tbl_feedback where bno = #{bno}
+	</select>
+	
+</mapper>

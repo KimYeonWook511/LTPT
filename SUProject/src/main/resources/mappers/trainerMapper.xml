@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suproject.mappers.TrainerMapper">
+	
+	<insert id="createTrainer">
+		insert into tbl_trainer (trainer) values (#{trainer})
+	</insert>
+	
+	<select id="readTrainer" resultType="com.suproject.domain.TrainerVO">
+		select * from tbl_trainer where trainer = #{trainer}
+	</select>
+	
+<!-- 	<update id="updateTrainer"> -->
+<!-- 		update tbl_trainer set ratingtotal = #{ratingtotal}, ratingcnt = #{ratingcnt} where trainer = #{trainer} -->
+<!-- 	</update> -->
+	
+	<update id="updateTrainer">
+		update tbl_trainer set ratingtotal = ratingtotal + #{rating}, ratingcnt = ratingcnt + 1 
+		where trainer = #{trainer}
+	</update>
+	
+	<delete id="deleteTrainer">
+		delete from tbl_trainer where trainer = #{trainer}
+	</delete>
+	
+</mapper>

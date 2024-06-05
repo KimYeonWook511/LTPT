@@ -1,0 +1,11 @@
+.rowdata:hover {
+	/* #을 붙이면 16진수(0~F) 0~15 : 16단계 16 * 16 * 16 가지 색상을 나타냄
+		rgb 6자리(0~255) 0~255 : 256단계 256 * 256 * 256 가지 색상을 나타냄 */
+	background: #ddd;
+	cursor: pointer;
+}
+
+h2 {
+	color: #747474;
+    font-weight: bold;
+}

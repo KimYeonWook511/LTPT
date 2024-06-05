@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suproject.mappers.EnrollMapper">
+	
+	<insert id="createEnroll">
+		insert into tbl_enroll (member, trainer, totalcnt, membername, trainername) 
+		values (#{member}, #{trainer}, #{totalcnt}, #{membername}, #{trainername})
+	</insert>
+	
+	<select id="readEnroll" resultType="com.suproject.domain.EnrollVO">
+		select * from tbl_enroll where member = #{member} and trainer = #{trainer}
+	</select>
+	
+	<select id="membership" resultType="int">
+		select count(*) from tbl_enroll where trainer = #{trainer}
+	</select>
+	
+	<update id="completecnt">
+		update tbl_enroll set completecnt = completecnt + 1 
+		where member = #{member} and trainer = #{trainer} 
+	</update>
+	
+	<update id="totalcnt">
+		update tbl_enroll set totalcnt = totalcnt + #{totalcnt}
+		where member = #{member} and trainer = #{trainer} 
+	</update>
+	
+	<select id="chkEnroll" resultType="com.suproject.domain.EnrollVO">
+		select * from tbl_enroll where member = #{member}
+	</select>
+	
+	<select id="memberList" resultType="com.suproject.domain.EnrollVO">
+		select * from tbl_enroll where trainer = #{trainer}
+	</select>
+	
+	<select id="memberAllList" resultType="com.suproject.domain.EnrollVO">
+		select * from tbl_enroll
+	</select>
+	
+</mapper>

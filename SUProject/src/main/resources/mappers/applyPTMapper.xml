@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suproject.mappers.ApplyPTMapper">
+	
+	<insert id="createApplyPT">
+		insert into tbl_applypt (userid, username, usergender, callnum, trainerid, trainername, totalcnt) 
+		values (#{userid}, #{username}, #{usergender}, #{callnum}, #{trainerid}, #{trainername}, #{totalcnt})
+	</insert>
+	
+	<select id="readApplyPT" resultType="com.suproject.domain.ApplyPTVO">
+		select * from tbl_applypt where userid = #{userid}
+	</select>
+	
+	<update id="updateApplyPT">
+		update tbl_applypt set trainer = #{trainer} where userid = #{userid}
+	</update>
+	
+	<delete id="deleteApplyPT">
+		delete from tbl_applypt where userid = #{userid}
+	</delete>
+
+	<select id="listApplyPT" resultType="com.suproject.domain.ApplyPTVO">
+		select * from tbl_applypt
+	</select>
+	
+</mapper>

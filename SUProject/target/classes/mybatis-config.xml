@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<package name="com.suproject.domain"/> <!-- 이 패키지에 있는 모든 것을 동맹맺겠다. 맵핑을 해주는 것이다. (아직 제대로 사용 안됨)-->
+	</typeAliases>
+</configuration>

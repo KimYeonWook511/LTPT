@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 1fr 400px;
+	grid-auto-rows: minmax(500px, auto);
+	grid-gap: 15px;
+	grid-template-areas: 'column-main column-side';
+}
+
+.column-main {
+	grid-area: column-main;
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: 1fr 800px 1fr;
+	grid-template-rows: 130px auto;
+	grid-gap: 10px;
+	grid-template-areas: '. myPT-title .' '. myPT-info .';
+}
+
+.column-side {
+	grid-area: column-side;
+}
+
+.myPT-title {
+	grid-area: myPT-title;
+	display: grid;
+	grid-template-rows: 20px auto 37px;
+	grid-gap: 3px;
+	grid-template-areas: '.' 'myPT-name' 'myPT-status';
+}
+
+.myPT-name {
+	grid-area: myPT-name;
+	vertical-align: middle;
+	text-align: left;
+	font-size: 40px;
+}
+
+.myPT-status {
+	grid-area: myPT-status;
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: auto 1px;
+	grid-template-areas: 'status-viewCount status-write' 'hr-bar hr-bar';
+}
+
+.status-viewCount {
+	grid-area: status-viewCount;
+	margin-left: 2px;
+	margin-right: 10px;
+	color: #747474;
+	font-weight: bold;
+}
+
+.status-write {
+	grid-area: status-write;
+	justify-content: end;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-areas: '. status-writer status-writeDate';
+}
+
+.status-writer {
+	grid-area: status-writer;
+	margin-left: 2px;
+	margin-right: 10px;
+	color: #747474;
+	font-weight: bold;
+}
+
+.status-writeDate {
+	grid-area: status-writeDate;
+	margin-left: 2px;
+	margin-right: 10px;
+	color: #747474;
+	font-weight: bold;
+}
+
+.hr-bar {
+	grid-area: hr-bar;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 100%;
+}
+
+.myPT-info {
+	grid-area: myPT-info;
+	margin-top: 20px;
+}
+
+.info-table {
+	padding: 20px 0;
+}
+
+.myPT_videotag {
+	margin-left: 0px;
+}
+
+.myPT_notvideo {
+	background: #D5D5D5;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.myPT_notvideo_inner {
+	color: rgba(79, 79, 79, 0.6);
+	font-size: 40px;
+}
+
+.myPT_info_th {
+	width: 110px;
+	color: rgba(79, 79, 79, 0.6);
+	line-height: 1.7;
+	text-align: left;
+	vertical-align: top;
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+
+td {
+	color: #4f4f4f;
+	line-height: 1.7;
+	text-align: left;
+	vertical-align: middle;
+	padding-bottom: 5px;
+}
+
+.review-data:hover {
+	/* #을 붙이면 16진수(0~F) 0~15 : 16단계 16 * 16 * 16 가지 색상을 나타냄
+		rgb 6자리(0~255) 0~255 : 256단계 256 * 256 * 256 가지 색상을 나타냄 */
+	background: #ddd;
+	cursor: pointer;
+}
+
+h2 {
+	color: #747474;
+    font-weight: bold;
+}
+
+.starSpan > img {
+	width: 50px;
+	height: 50px;
+}
+
+.member-info {
+	width: 400px;
+	height: 400px;
+	margin-top: 50px;
+}
+
+.member-info-title {
+	color: #747474;
+	font-weight: bold;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
